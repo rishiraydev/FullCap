@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FullCap Editor</title>
+  <link rel="stylesheet" href="editor.css">
+  <!-- Load Local Libraries -->
+  <script src="lib/fabric.min.js"></script>
+  <script src="lib/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"></path><circle cx="12" cy="13" r="3"></circle></svg>
+      <span>FullCap</span>
+    </div>
+    
+    <div class="tool-group actions">
+      <button id="btn-export-png" class="export-btn png-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        Save PNG
+      </button>
+      <button id="btn-export-jpg" class="export-btn jpg-btn">Save JPG</button>
+      <button id="btn-export-pdf" class="export-btn pdf-btn">Save PDF</button>
+    </div>
+  </div>
+
+  <div class="canvas-container-wrapper">
+    <canvas id="main-canvas"></canvas>
+  </div>
+
+  <div class="floating-toolbar">
+    <div class="tool-group">
+      <button id="tool-select" class="tool-btn active" title="Select/Move (V)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"></path></svg>
+      </button>
+      <button id="tool-draw" class="tool-btn" title="Freehand Draw (B)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path></svg>
+      </button>
+      <button id="tool-rect" class="tool-btn" title="Rectangle (R)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+      </button>
+      <button id="tool-text" class="tool-btn" title="Text (T)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+      </button>
+      <button id="tool-crop" class="tool-btn" title="Crop Image (C)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"></path><path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"></path></svg>
+      </button>
+      <div class="divider"></div>
+      <label class="color-picker-wrapper" title="Choose Color">
+        <input type="color" id="color-picker" value="#ff4757">
+      </label>
+      <button id="btn-delete" class="tool-btn delete-btn" title="Delete Selected (Del)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+      </button>
+    </div>
+  </div>
+  
+  <script src="editor.js"></script>
+</body>
+</html>
